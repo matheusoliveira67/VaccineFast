@@ -4,8 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-
-
 public class Atendente {
     private String nome;
     private String senha;
@@ -45,20 +43,5 @@ public class Atendente {
         this.id = id;
     }
     
-    public void listar() throws SQLException {
-        String sql = "SELECT * FROM tb_administrador";
-        ConecctionFactory factory = new ConecctionFactory();
-        try (Connection d = factory.ADM()) {
-            PreparedStatement pst = d.prepareStatement(sql);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                int id = rs.getInt("id");
-                String nome = rs.getString("nome");
-                String senha = rs.getString("senha");
-                String s = String.format("Id: %d\nNome: %s\n", id, nome, senha);
-                JOptionPane.showMessageDialog(null, s);
-
-            }
-        }
-    }
+    
 }
